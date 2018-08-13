@@ -3,7 +3,7 @@ require 'oystercard'
 describe OysterCard do
 
   it 'sets the maximum balance to 90' do
-    expect{subject.top_up(100)}.to raise_error 'Balance can\'t be greater than £90'
+    expect { subject.top_up(100) }.to raise_error 'Balance can\'t be greater than £90'
   end
 
   describe '#balance' do
@@ -26,16 +26,22 @@ describe OysterCard do
     end
   end
 
-  describe '#in_journey' do
-    it 'checks if the oystercard is in a journey afte touch_in' do
+  describe '#touch_in' do
+    it 'checks if the oystercard is in a journey after touch_in' do
+      subject.top_up(10)
       subject.touch_in
-      expect(subject.in_journey).to eq true
+      expect(subject.in_journey).to be true
     end
 
-    it 'checks if the oystercard is in a journey afte touch_out' do
+    it 'does not let you travel without a balane above £1' do
+      expect { subject.touch_in }.to raise_error('Balance not high enough')
+    end
+  end
+
+  describe '#touch_out' do
+    it 'checks if the oystercard is in a journey after touch_out' do
       subject.touch_out
-      expect(subject.in_journey).to eq false
+      expect(subject.in_journey).to be false
     end
-
   end
 end
