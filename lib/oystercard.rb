@@ -20,13 +20,13 @@ class OysterCard
   end
 
   def touch_out
+    deduct(MINIMUM_FARE)
     @in_journey = false
-    @balance -= MINIMUM_FARE
   end
 
   private
+
   def deduct(number)
     @balance -= number
   end
-
 end
