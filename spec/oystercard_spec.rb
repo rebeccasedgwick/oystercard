@@ -19,14 +19,25 @@ RSpec.describe OysterCard do
   end
 
   describe '#touch_in' do
-    it 'checks if the oystercard is in a journey after touch_in' do
-      subject.top_up(10)
-      subject.touch_in
-      expect(subject.in_journey).to be true
+    let(:station) { double :station }
+    it 'does not let you travel without a balance above £1' do
+      expect { subject.touch_in(station) }.to raise_error('Balance not high enough')
     end
 
-    it 'does not let you travel without a balance above £1' do
-      expect { subject.touch_in }.to raise_error('Balance not high enough')
+    context 'when the oystercard has enough money to travel' do
+      before do
+        subject.top_up(10)
+      end
+
+      it 'checks if the oystercard is in a journey after touch_in' do
+        subject.touch_in(station)
+        expect(subject.in_journey).to be true
+      end
+
+      it 'remembers the entry station you touched in at' do
+        subject.touch_in(station)
+        expect(subject.entry_station).to eq station
+      end
     end
   end
 
