@@ -70,6 +70,4 @@ RSpec.describe Oystercard do
       expect(subject.journeys).to be_empty
     end
   end
-
-
 end
