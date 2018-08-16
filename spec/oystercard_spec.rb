@@ -43,8 +43,10 @@ RSpec.describe Oystercard do
   end
 
   describe '#touch_out' do
+    let(:station) { double :station }
+
     it 'checks if the oystercard is in a journey after touch_out' do
-      subject.touch_out
+      subject.touch_out(station)
       expect(subject.in_journey?).to be false
     end
 
@@ -53,14 +55,21 @@ RSpec.describe Oystercard do
       subject.top_up(Oystercard::MAX_BALANCE)
     end
       it 'deducts a fare from the card balance on touch out' do
-        expect { subject.touch_out }.to change { subject.balance }.by(-Oystercard::MINIMUM_FARE)
+        expect { subject.touch_out(station) }.to change { subject.balance }.by(-Oystercard::MINIMUM_FARE)
       end
 
       it 'sets the entry station to nil after touch out' do
         subject.touch_in('TrainStation')
-        subject.touch_out
+        subject.touch_out(station)
         expect(subject.entry_station).to eq nil
       end
+    end
+  end  
+
+  describe '#journey_history_check' do
+    it 'checks if the journey list is empty by default' do
+      subject.journey_history_check
+      expect(subject.journeys).to be_empty
     end
   end
 end
