@@ -1,4 +1,4 @@
-class OysterCard
+class Oystercard
   attr_reader :balance
   attr_reader :in_journey
   attr_reader :entry_station
@@ -24,6 +24,10 @@ class OysterCard
   def touch_out
     deduct(MINIMUM_FARE)
     @in_journey = false
+  end
+
+  def in_journey?
+    false
   end
 
   private
