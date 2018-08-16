@@ -58,13 +58,11 @@ RSpec.describe Oystercard do
         expect { subject.touch_out(station) }.to change { subject.balance }.by(-Oystercard::MINIMUM_FARE)
       end
 
-      it 'sets the entry station to nil after touch out' do
-        subject.touch_in(station)
-        subject.touch_out(station)
-        expect(subject.entry_station).to eq nil
+      it 'adds a journey hash to the journeys (history) array' do
+        expect { subject.touch_out(station) }.to change { subject.journeys.length }.by(1)
       end
     end
-  end  
+  end
 
   describe '#journey_history_check' do
     it 'checks if the journey list is empty by default' do
@@ -72,4 +70,6 @@ RSpec.describe Oystercard do
       expect(subject.journeys).to be_empty
     end
   end
+
+
 end

@@ -37,7 +37,7 @@ class Oystercard
     @journeys
   end
 
-  # private
+  private
 
   def start_journey(station)
     @hash = Hash.new
@@ -53,5 +53,3 @@ class Oystercard
     @balance -= number
   end
 end
-
-# array = [{ entry_station: "bank", exit_station: "moorgate" }, { entry_station: "bank", exit_station: "moorgate"}]

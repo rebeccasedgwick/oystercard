@@ -1,12 +1,12 @@
 example_id                         | status | run_time        |
 ---------------------------------- | ------ | --------------- |
-./spec/oystercard_spec.rb[1:1]     | passed | 0.00216 seconds |
-./spec/oystercard_spec.rb[1:2:1]   | passed | 0.00044 seconds |
-./spec/oystercard_spec.rb[1:3:1]   | passed | 0.00008 seconds |
-./spec/oystercard_spec.rb[1:4:1:1] | passed | 0.00057 seconds |
-./spec/oystercard_spec.rb[1:4:1:2] | passed | 0.00014 seconds |
-./spec/oystercard_spec.rb[1:4:2]   | passed | 0.00014 seconds |
-./spec/oystercard_spec.rb[1:5:1]   | passed | 0.00008 seconds |
-./spec/oystercard_spec.rb[1:5:2:1] | passed | 0.0017 seconds  |
-./spec/oystercard_spec.rb[1:5:2:2] | failed | 0.01151 seconds |
-./spec/oystercard_spec.rb[1:6:1]   | passed | 0.0019 seconds  |
+./spec/oystercard_spec.rb[1:1]     | passed | 0.00112 seconds |
+./spec/oystercard_spec.rb[1:2:1]   | passed | 0.00055 seconds |
+./spec/oystercard_spec.rb[1:3:1]   | passed | 0.00014 seconds |
+./spec/oystercard_spec.rb[1:4:1:1] | passed | 0.00066 seconds |
+./spec/oystercard_spec.rb[1:4:1:2] | passed | 0.00016 seconds |
+./spec/oystercard_spec.rb[1:4:2]   | passed | 0.00017 seconds |
+./spec/oystercard_spec.rb[1:5:1]   | passed | 0.00012 seconds |
+./spec/oystercard_spec.rb[1:5:2:1] | passed | 0.00169 seconds |
+./spec/oystercard_spec.rb[1:5:2:2] | passed | 0.00016 seconds |
+./spec/oystercard_spec.rb[1:6:1]   | passed | 0.00134 seconds |
