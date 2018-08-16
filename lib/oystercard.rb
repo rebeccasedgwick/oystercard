@@ -20,12 +20,13 @@ class Oystercard
     raise 'Balance not high enough' if @balance < MINIMUM_FARE
     @entry_station = station
     start_journey(station)
+    in_journey?
   end
 
   def touch_out(station)
     deduct(MINIMUM_FARE)
     end_journey(station)
-    "touched out"
+    in_journey?
   end
 
   def in_journey?

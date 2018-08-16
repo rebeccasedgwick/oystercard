@@ -59,7 +59,7 @@ RSpec.describe Oystercard do
       end
 
       it 'sets the entry station to nil after touch out' do
-        subject.touch_in('TrainStation')
+        subject.touch_in(station)
         subject.touch_out(station)
         expect(subject.entry_station).to eq nil
       end
