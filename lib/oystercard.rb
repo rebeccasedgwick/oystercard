@@ -19,6 +19,7 @@ class Oystercard
   end
 
   def touch_in(station)
+    # throw error if station is not a Station
     raise 'Balance not high enough' if @balance < MINIMUM_FARE
     @entry_station = station
     start_journey(station)
